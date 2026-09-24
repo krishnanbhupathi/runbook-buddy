@@ -177,3 +177,9 @@ Markdown renderer). Verified locally via curl (5 sections, ~25 s) and in Chrome
 > commit
 
 **Produced:** fourth commit.
+
+## 11. Milestone 5 approval
+
+> commit
+
+**Produced:** fifth commit.
