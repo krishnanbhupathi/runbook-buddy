@@ -183,3 +183,15 @@ Markdown renderer). Verified locally via curl (5 sections, ~25 s) and in Chrome
 > commit
 
 **Produced:** fifth commit.
+
+**Also produced (milestone 6, no new prompt):** first deploy to
+https://runbook-buddy.krishnanbhupathi.workers.dev, smoke-tested live (chat, memory,
+Workflow run to completion), and this README with architecture diagram, component mapping,
+local/deploy instructions, API table and limitations.
+
+## 12. README approval and publish
+
+> commit and push
+
+**Produced:** sixth commit; public repo github.com/krishnanbhupathi/runbook-buddy created
+and `main` pushed.
