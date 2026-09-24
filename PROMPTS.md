@@ -147,3 +147,17 @@ driving a 14-message conversation.
 > commit
 
 **Produced:** second commit.
+
+**Also produced (milestone 3, no new prompt):** chat UI in `public/` (`index.html`,
+`style.css`, `app.js`): no framework or build step; conversation ID kept in localStorage;
+history restored from `/api/memory` on load; replies streamed token by token by parsing the
+SSE body; side panel shows known services, the rolling summary and generated runbooks; "New
+conversation" wipes the Durable Object and starts a fresh ID. Verified in Chrome: sent a
+message, watched it stream, saw `orders-api` appear in the memory panel, reloaded and saw the
+history restored.
+
+## 9. Milestone 3 approval
+
+> commit
+
+**Produced:** third commit.
