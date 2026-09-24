@@ -1,10 +1,12 @@
 /**
  * Shared types. `Env` describes the bindings declared in wrangler.jsonc.
  */
+import type { ConversationDO } from "./conversation-do";
+
 export interface Env {
   AI: Ai;
   ASSETS: Fetcher;
-  CONVERSATION: DurableObjectNamespace;
+  CONVERSATION: DurableObjectNamespace<ConversationDO>;
   RUNBOOK_WORKFLOW: Workflow;
 }
 

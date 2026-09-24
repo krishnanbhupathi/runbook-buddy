@@ -119,3 +119,31 @@ Workflow and assets bindings), `tsconfig.json`, `.gitignore`, MIT `LICENSE`,
 Workers AI, `src/llm.ts`, `src/types.ts`, placeholder Durable Object and Workflow classes,
 placeholder `public/index.html`, and this file. Verified locally with `wrangler dev` and curl.
 Fixed a compatibility_date that was newer than the local runtime supported.
+
+## 7. Commit review
+
+> before commiting show me the commit message
+>
+> can you remove the Co-Auuthored-By line
+
+**Produced:** first commit made without an AI co-author trailer (user preference for this repo).
+
+**Also produced (milestone 2, no new prompt):** Durable Object memory. `src/memory.ts`
+(pure logic: compaction threshold and split, summary and extraction prompts, defensive JSON
+parsing, service upsert, chat-context assembly), `src/sse.ts` (tee the SSE stream so the
+Worker can store the reply while the browser streams it), `src/conversation-do.ts`
+(SQLite tables for messages, summary, services, runbooks; RPC methods; post-turn
+maintenance), `src/prompts.ts`, and `/api/memory` GET/DELETE routes. Debugged three issues
+found by running it: a non-handler export from the entry module crashes the runtime; Workers
+AI non-streaming output is OpenAI-shaped for this model, not `{response}`; the extractor
+recorded "Postgres" as a service, fixed by tightening the prompt. Verified compaction by
+driving a 14-message conversation.
+
+## 8. Milestone 2 verification and approval
+
+> (pasted the output of the two verification curl commands: streamed reply plus the
+> `/api/memory` JSON showing the stored messages and the extracted `checkout-api` service)
+>
+> commit
+
+**Produced:** second commit.

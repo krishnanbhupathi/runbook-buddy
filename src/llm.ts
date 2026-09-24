@@ -22,8 +22,29 @@ export async function complete(
     messages,
     max_tokens: opts.maxTokens ?? 1024,
     temperature: opts.temperature ?? 0.4,
-  })) as { response?: string };
-  return (result.response ?? "").trim();
+  })) as unknown;
+  return extractText(result);
+}
+
+/**
+ * Workers AI's non-streaming output shape differs between models and API
+ * revisions: older ones return `{ response: string }`, newer OpenAI-compatible
+ * ones return `{ choices: [{ message: { content } }] }`, and some wrap the
+ * former as `{ response: { ... } }`. Handle all three.
+ */
+export function extractText(result: unknown): string {
+  if (typeof result === "string") return result.trim();
+  if (!result || typeof result !== "object") return "";
+  const r = result as {
+    response?: unknown;
+    choices?: { message?: { content?: unknown } }[];
+  };
+  if (typeof r.response === "string") return r.response.trim();
+  const fromChoices = r.choices?.[0]?.message?.content;
+  if (typeof fromChoices === "string") return fromChoices.trim();
+  if (r.response && typeof r.response === "object") return extractText(r.response);
+  console.error("Unrecognised Workers AI response shape:", JSON.stringify(result).slice(0, 300));
+  return "";
 }
 
 /**
