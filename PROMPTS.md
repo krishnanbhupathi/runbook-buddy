@@ -161,3 +161,19 @@ history restored.
 > commit
 
 **Produced:** third commit.
+
+**Also produced (milestone 4, no new prompt):** the Workflow. `src/runbook.ts` (pure:
+outline and section prompts, tolerant outline parser with a default fallback, Markdown
+assembly, `/runbook <service>` command parser), `src/runbook-workflow.ts` (`RunbookWorkflow`:
+one retried `step.do` for the outline, one per section, one to assemble and write the result
+into the conversation's Durable Object; failures are recorded there too), Worker routes
+`POST /api/runbook` and `GET /api/runbook/:id`, chat interception of `/runbook <service>`,
+and UI support (a "Generate runbook" button per known service, status polling, a small safe
+Markdown renderer). Verified locally via curl (5 sections, ~25 s) and in Chrome
+(`docs/screenshot.jpg`).
+
+## 10. Milestone 4 approval
+
+> commit
+
+**Produced:** fourth commit.

@@ -58,3 +58,10 @@ body {
   .side { border-right: 0; border-bottom: 1px solid var(--line); max-height: 38vh; }
   .brand p { display: none; }
 }
+
+.mini { display: block; margin-top: 6px; padding: 3px 8px; font: inherit; font-size: 12px; border: 1px solid var(--line); border-radius: 6px; background: transparent; color: var(--accent); cursor: pointer; }
+.mini:hover { border-color: var(--accent); }
+.msg.md { max-width: 95%; white-space: normal; }
+.msg.md h3, .msg.md h4, .msg.md h5 { margin: 12px 0 4px; }
+.msg.md h3 { font-size: 17px; } .msg.md h4 { font-size: 15px; }
+.msg.md p { margin: 6px 0; } .msg.md ol, .msg.md ul { margin: 4px 0 8px; padding-left: 22px; }
