@@ -195,3 +195,26 @@ local/deploy instructions, API table and limitations.
 
 **Produced:** sixth commit; public repo github.com/krishnanbhupathi/runbook-buddy created
 and `main` pushed.
+
+## 13. Live testing
+
+> (screenshot of the empty live app) Here i'm help me to test this
+
+**Produced:** a 5-step manual test script covering extraction, recall after reload,
+incident mode, the Workflow, and compaction. No code.
+
+## 14. Test results
+
+> (three screenshots of the live app: orders-api extracted to memory, recall answered
+> correctly after reload, incident question, and a completed 5-section runbook from
+> `/runbook orders-api`)
+
+**Produced:** confirmation that steps 1 to 4 pass on the deployed app; noted that the
+extractor stored "has a p99 latency SLO" from an incident message, left as a documented
+best-effort limitation.
+
+## 15. Final publish
+
+> commit and push
+
+**Produced:** seventh commit, pushed to main.
