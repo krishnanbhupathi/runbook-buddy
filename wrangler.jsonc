@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "runbook-buddy",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-05-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+
+  // Static chat UI, served by the same Worker. Requests that match a file in
+  // ./public are answered directly; everything else (e.g. /api/*) hits the Worker.
+  "assets": { "directory": "./public", "binding": "ASSETS" },
+
+  // Workers AI binding: env.AI.run(model, input). No API key needed.
+  "ai": { "binding": "AI", "remote": true },
+
+  // One Durable Object instance per conversation, SQLite-backed (free plan).
+  "durable_objects": {
+    "bindings": [{ "name": "CONVERSATION", "class_name": "ConversationDO" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["ConversationDO"] }],
+
+  // Multi-step, retried runbook generation.
+  "workflows": [
+    { "name": "runbook-workflow", "binding": "RUNBOOK_WORKFLOW", "class_name": "RunbookWorkflow" }
+  ]
+}

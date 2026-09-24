@@ -1,0 +1,22 @@
+{
+  "name": "runbook-buddy",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reliability runbook assistant on Cloudflare Workers AI, Durable Objects and Workflows",
+  "license": "MIT",
+  "author": "Bhupathi Murali Krishna",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "cf-typegen": "wrangler types"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260702.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18",
+    "wrangler": "^4.86.0"
+  }
+}

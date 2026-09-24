@@ -1,0 +1,4 @@
+# Copy to .dev.vars for local development. Nothing here is required today:
+# Workers AI, Durable Objects and Workflows all use bindings, not secrets.
+# Kept so the project has a known place for secrets if one is added later.
+# EXAMPLE_SECRET=changeme
